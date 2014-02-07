@@ -4,7 +4,7 @@
 // сектора, включая отрезки диагоналей, составляющие этот сектор.
 
 #include <iostream>
-#define min(x,y) (x>y?y:x)
+#define min(x,y) ( (x) > (y) ? (y) : (x) )
 const int c_kM = 5;
 // row x col
 typedef int Matrix[c_kM][c_kM];
