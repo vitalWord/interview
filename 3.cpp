@@ -1,9 +1,3 @@
-﻿// Напишите функцию Add(), которая создает новый 
-// объект List, инициализирует его входным значением 
-// value и добавляет его в конец списка l, полученного 
-// на вход. В функции main() создайте проинициализированный 
-// список, со значениями value равными: 1, 2, 3, 4 и 5.
-
 struct List
 {
       int value;
@@ -14,10 +8,18 @@ struct List
 // It should return pointer to the added List object.
 List* Add(List* l, int value)
 {
-
+	List* nxt = new List();
+	nxt->value = value;
+	nxt->next = nullptr;
+	if(l) l->next = nxt;
+	return nxt;
 }
 
 int main(int argc, char* argv[])
 {
-return 0;
+	List* head = Add(nullptr, 1);
+	List* tmp = head;
+	for(int i = 2; i < 6; i++)
+		tmp = Add(tmp, i);
+	return 0;
 }
