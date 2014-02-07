@@ -6,18 +6,32 @@
 
 struct List
 {
-      int value;
-      List* next;
+	int value;
+	List* next;
 };
 
 // Add should create new List object, initialize it by value and add it to the end of the list.
 // It should return pointer to the added List object.
 List* Add(List* l, int value)
 {
-
+	List*new_lst = new List{value,0};
+	List*prev = 0;
+	auto tmp = l;
+	for (; (tmp != 0) && (tmp->next != 0); tmp = tmp->next){}
+	if (tmp) {
+		tmp->next = new_lst;
+	}
+	else {
+//		l = new_lst;
+	}
+	return new_lst;
 }
 
 int main(int argc, char* argv[])
 {
-return 0;
+	List*l = Add(0, 1);;
+	for (int i = 2; i <= 5; i++) {
+		Add(l, i);
+	}
+	return 0;
 }
