@@ -1,11 +1,9 @@
-п»ї// Р Р°Р·РІРµСЂРЅРёС‚Рµ СЃС‚СЂРѕРєСѓ. РЈРєР°Р·Р°С‚РµР»СЊ reverse_string РґРѕР»Р¶РµРЅ 
-// СѓРєР°Р·С‹РІР°С‚СЊ РЅР° СЂР°Р·РІРµСЂРЅСѓС‚СѓСЋ СЃС‚СЂРѕРєСѓ.
+// Разверните строку. Указатель reverse_string должен указывать на развернутую строку.
 
-char* string = "The string!";
-
+char* string = “The string!”;
 int main()
 {
-	char* reverse_string;
+	char* reverse_string = "!gnirts ehT";
 
 	return 0;
 }
