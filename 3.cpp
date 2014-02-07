@@ -1,4 +1,9 @@
-// Напишите функцию Add(), которая создает новый объект List, инициализирует его входным значением value и добавляет его в конец списка l, полученного на вход. В функции main() создайте проинициализированный список, со значениями value равными: 1, 2, 3, 4 и 5.
+// РќР°РїРёС€РёС‚Рµ С„СѓРЅРєС†РёСЋ Add(), РєРѕС‚РѕСЂР°СЏ СЃРѕР·РґР°РµС‚ РЅРѕРІС‹Р№ РѕР±СЉРµРєС‚ List, РёРЅРёС†РёР°Р»РёР·РёСЂСѓРµС‚
+// РµРіРѕ РІС…РѕРґРЅС‹Рј Р·РЅР°С‡РµРЅРёРµРј value Рё РґРѕР±Р°РІР»СЏРµС‚ РµРіРѕ РІ РєРѕРЅРµС† СЃРїРёСЃРєР° l, РїРѕР»СѓС‡РµРЅРЅРѕРіРѕ РЅР° РІС…РѕРґ.
+// Р’ С„СѓРЅРєС†РёРё main() СЃРѕР·РґР°Р№С‚Рµ РїСЂРѕРёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°РЅРЅС‹Р№ СЃРїРёСЃРѕРє, СЃРѕ Р·РЅР°С‡РµРЅРёСЏРјРё value СЂР°РІРЅС‹РјРё: 1, 2, 3, 4 Рё 5.
+
+#include <stdio.h>
+#include <stdlib.h>
 
 struct List
 {
@@ -10,10 +15,47 @@ struct List
 // It should return pointer to the added List object.
 List* Add(List* l, int value)
 {
+	List *newElem, *curElem;
+
+	newElem = (List *) calloc(1, sizeof(List));
+	newElem->value = value;
+
+	if(NULL == l) {
+		l = newElem;
+	}
+	else {
+		curElem = l;
+		while(curElem->next != NULL)
+			curElem = curElem->next;
+		curElem->next = newElem;
+	}
+
+	return l;
 
 }
 
+void printList(List *l);
+
 int main(int argc, char* argv[])
 {
-return 0;
+	List *l = NULL;
+
+	l = Add(l, 1);
+	l = Add(l, 2);
+	l = Add(l, 3);
+	l = Add(l, 4);
+	l = Add(l, 5);
+
+	printList(l);
+
+	return 0;
+}
+void printList(List *l)
+{
+	printf("The list is: ");
+	while (l) {
+		printf("%d ", l->value);
+		l = l->next;
+	}
+	printf("\n");
 }
