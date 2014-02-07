@@ -2,33 +2,36 @@
 // его входным значением value и добавляет его в конец списка l, полученного на вход.
 // В функции main() создайте проинициализированный список, со значениями value равными: 1, 2, 3, 4 и 5.
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <iostream>
+using namespace std;
 
 struct List
 {
-      int value;
-      List* next;
+	int value;
+	List* next;
 };
 
 // Add should create new List object, initialize it by value and add it to the end of the list.
 // It should return pointer to the added List object.
 List* Add(List* l, int value)
 {
-	List *newElem, *curElem;
+	List *newElem;
 
-	newElem = (List *) calloc(1, sizeof(List));
+	newElem = new List;
 	newElem->value = value;
+	newElem->next = NULL;
 
-	if(NULL == l) {
-		l = newElem;
+	if (!l) {
+		return newElem;
+		/*NOTREACHED*/
 	}
-	else {
-		curElem = l;
-		while(curElem->next != NULL)
-			curElem = curElem->next;
-		curElem->next = newElem;
-	}
+
+	List *curElem = l;
+
+	while (curElem->next)
+		curElem = curElem->next;
+
+	curElem->next = newElem;
 
 	return l;
 
@@ -41,10 +44,8 @@ int main(int argc, char* argv[])
 	List *l = NULL;
 
 	l = Add(l, 1);
-	l = Add(l, 2);
-	l = Add(l, 3);
-	l = Add(l, 4);
-	l = Add(l, 5);
+	for (size_t i = 2; i < 6; i++)
+		Add(l, i);
 
 	printList(l);
 
@@ -52,10 +53,10 @@ int main(int argc, char* argv[])
 }
 void printList(List *l)
 {
-	printf("The list is: ");
+	cout << "The list is: ";
 	while (l) {
-		printf("%d ", l->value);
+		cout << l->value << " ";
 		l = l->next;
 	}
-	printf("\n");
+	cout << endl;
 }
