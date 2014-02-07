@@ -14,10 +14,26 @@ struct List
 // It should return pointer to the added List object.
 List* Add(List* l, int value)
 {
-
+	List * new_last = new List();
+	new_last->next = nullptr;
+	new_last->value = value;
+	if(!l) // if empty
+		return new_last;
+	while(l->next) // find the last element
+		l = l->next;
+	l->next = new_last;
+	return new_last;
 }
 
 int main(int argc, char* argv[])
 {
+	const int N = 6;
+	List * l = new List();
+	l->next = nullptr;
+	l->value = 0;
+	for(int i = 1; i < N; i++)
+	{
+		Add(l, i);
+	}
 return 0;
 }
