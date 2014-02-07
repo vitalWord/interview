@@ -13,38 +13,20 @@ List* Add(List* l, int value)
 	List * newListObject = new List;
 	newListObject->next = NULL;
 	newListObject->value = value;
-
-	List * temp = l;	
-	while (temp != NULL)
+	if (l != NULL)
 	{
-		if (temp->next == NULL)
-		{
-			temp->next = newListObject;
-			return newListObject;
-		}
-		temp = temp->next;
+		l->next = newListObject;
 	}
-}
-
-void display(List * head) {
-	List * list = head;
-	while (list != NULL) {
-		std::cout << list->value << " ";
-		list = list->next;
-	}
+	return newListObject;
 }
 
 int main(int argc, char* argv[])
 {
-	List * list = new List;
-	list->value = 1;
-	list->next = NULL;
-
+	List * list = Add(NULL, 1);
+	List * temp = list;
 	for (int i = 2; i <= 5; i++)
 	{
-		Add(list, i);
+		temp = Add(temp, i);
 	}
-
-	display(list);
 	return 0;
 }
