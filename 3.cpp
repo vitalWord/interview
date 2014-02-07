@@ -15,14 +15,9 @@ struct List
 List* Add(List* l, int value)
 {
 	List*new_lst = new List{value,0};
-	auto tmp = l;
-	for (; (tmp != 0) && (tmp->next != 0); tmp = tmp->next){}
-	if (tmp) {
-		tmp->next = new_lst;
-	}
-	else {
-		//have no sense
-//		l = new_lst;
+	if(l) {
+		for (;(l->next != 0); l = l->next){}
+		l->next = new_lst;
 	}
 	return new_lst;
 }
