@@ -15,13 +15,13 @@ struct List
 List* Add(List* l, int value)
 {
 	List*new_lst = new List{value,0};
-	List*prev = 0;
 	auto tmp = l;
 	for (; (tmp != 0) && (tmp->next != 0); tmp = tmp->next){}
 	if (tmp) {
 		tmp->next = new_lst;
 	}
 	else {
+		//have no sense
 //		l = new_lst;
 	}
 	return new_lst;
@@ -29,7 +29,7 @@ List* Add(List* l, int value)
 
 int main(int argc, char* argv[])
 {
-	List*l = Add(0, 1);;
+	List*l = Add(0, 1);
 	for (int i = 2; i <= 5; i++) {
 		Add(l, i);
 	}
