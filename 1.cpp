@@ -3,17 +3,15 @@
 
 char * reverse(char * s)
 {
-	int length = strlen(s);
-	int i, j;
-	for (i = 0, j = length - 1; i < j; i++, j--)
+	int len = strlen(s);
+	for (int i = 0; i < len / 2; i++)
 	{
-		char c = s[i];
-		s[i] = s[j];
-		s[j] = c;
+		char temp = s[i];
+		s[i] = s[len - i - 1];
+		s[len - i - 1] = temp;
 	}
 	return s;
 }
-
 char * string = "The string!";
 
 int main()
