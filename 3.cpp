@@ -1,8 +1,5 @@
 ﻿// Напишите функцию Add(), которая создает новый 
-// объект List, инициализирует его входным значением 
-// value и добавляет его в конец списка l, полученного 
-// на вход. В функции main() создайте проинициализированный 
-// список, со значениями value равными: 1, 2, 3, 4 и 5.
+// Напишите функцию Add(), которая создает новый объект List, инициализирует его входным значением value и добавляет его в конец списка l, полученного на вход. В функции main() создайте проинициализированный список, со значениями value равными: 1, 2, 3, 4 и 5.
 
 struct List
 {
@@ -14,10 +11,17 @@ struct List
 // It should return pointer to the added List object.
 List* Add(List* l, int value)
 {
-
+	List *newList=new List;
+	newList->value=value;
+	l->next=newList;
+	return(newList);
 }
 
 int main(int argc, char* argv[])
 {
+	List *_lst=new List;
+	_lst->value=1;
+	for(int i=0;i<5;i++)
+		_lst=Add(_lst,i+1);
 return 0;
 }
