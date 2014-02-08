@@ -15,37 +15,30 @@ struct List
 // It should return pointer to the added List object.
 List* Add(List* l, int value)
 {
-	List *newElem;
-
-	newElem = new List;
+	List *newElem = new List;
 	newElem->value = value;
 	newElem->next = NULL;
 
-	if (!l) {
-		return newElem;
-		/*NOTREACHED*/
+	if (l) {
+		while (l->next)
+		l = l->next;
+		
+		l->next = newElem;
 	}
-
-	List *curElem = l;
-
-	while (curElem->next)
-		curElem = curElem->next;
-
-	curElem->next = newElem;
-
-	return l;
-
+	
+	return newElem;
 }
 
 void printList(List *l);
 
 int main(int argc, char* argv[])
 {
-	List *l = NULL;
-
-	l = Add(l, 1);
-	for (size_t i = 2; i < 6; i++)
-		Add(l, i);
+	List *l, *tmpList;
+	size_t i;
+	
+	l = Add(NULL, 1);
+	for (i = 2, tmpList = l; i < 6; i++)
+		tmpList = Add(tmpList, i);
 
 	printList(l);
 
