@@ -1,15 +1,15 @@
 #include <iostream>
-#include <string>
 
 char* string = "The string!";
 int main()
 {
-	char* reverse_string = new char[strlen(string)];
-	for(int i = 0 ; i < strlen(string); i++)
+	int len = strlen(string);
+	char* reverse_string = new char[len];
+	for(int i = 0 ; i < len; i++)
 	{
-		reverse_string[i] = string[strlen(string)-1 - i];
+		reverse_string[i] = string[len-1 - i];
 	}
-	reverse_string[strlen(string)] = '\0';
+	reverse_string[len] = '\0';
 	std::cout << reverse_string;
 	system("pause");
 	return 0;
