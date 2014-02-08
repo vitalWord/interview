@@ -1,11 +1,16 @@
-﻿// Разверните строку. Указатель reverse_string должен 
-// указывать на развернутую строку.
+#include <iostream>
 
 char* string = "The string!";
-
 int main()
 {
-	char* reverse_string;
-
+	int len = strlen(string);
+	char* reverse_string = new char[len];
+	for(int i = 0 ; i < len; i++)
+	{
+		reverse_string[i] = string[len-1 - i];
+	}
+	reverse_string[len] = '\0';
+	std::cout << reverse_string;
+	system("pause");
 	return 0;
 }
