@@ -11,7 +11,13 @@ List* Add(List* l, int value)
 	List* nxt = new List();
 	nxt->value = value;
 	nxt->next = nullptr;
-	if(l) l->next = nxt;
+	if(l)
+	{
+		while(l->next)
+			l = l->next;
+
+		l->next = nxt;
+	}
 	return nxt;
 }
 
@@ -21,5 +27,6 @@ int main(int argc, char* argv[])
 	List* tmp = head;
 	for(int i = 2; i < 6; i++)
 		tmp = Add(tmp, i);
+
 	return 0;
 }
