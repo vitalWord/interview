@@ -10,6 +10,7 @@ struct List
 {
       int value;
       List* next;
+      ~List(void);
 };
 
 // Add should create new List object, initialize it by value and add it to the end of the list.
@@ -30,6 +31,12 @@ List* Add(List* l, int value)
       return new_item;
 }
 
+List::~List(void) {
+      if (this->next)
+            delete this->next;
+      
+}
+
 int main(int argc, char* argv[])
 {
       List* begin = NULL;
@@ -38,6 +45,10 @@ int main(int argc, char* argv[])
       Add(begin, 3);
       Add(begin, 4);
       Add(begin, 5);
+      
+      // [...]
+      
+      delete begin;
       
       return 0;
 }
