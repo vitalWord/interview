@@ -11,10 +11,14 @@ void strreverse(char * aStr);
 		right = left ^ right;  \
 		left = left ^ right;   \
 	} while (0)
+	
+#ifdef _MSC_VER
+# define strdup _strdup
+#endif
 
 int main()
 {
-	char* reverse_string = strdup(str);
+	char* reverse_string = strdup(str); //strlen + alloc + memcpy
 	printf("%s\n", str);
 	strreverse(reverse_string);
 	printf("%s\n", reverse_string);
