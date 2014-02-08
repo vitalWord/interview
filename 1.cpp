@@ -14,5 +14,7 @@ int main()
 	for (size_t i=0; i < length; i++)
         reverse_string[i] = string[length-i-1];
 
+
+	delete [] reverse_string;
 	return 0;
 }
