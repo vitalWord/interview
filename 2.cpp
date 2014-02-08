@@ -15,7 +15,7 @@ int min_from_top_sector(Matrix& m)
 	
 	int j = 0;
 	while (l <= r) {
-		for (int i = l; i < r; i++)
+		for (int i = l; i <= r; i++)
 			if (m[i][j] < min) min = m[i][j];
 		l++; r--;
 		j++;
