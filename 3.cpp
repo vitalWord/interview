@@ -15,6 +15,9 @@ List* Add(List* l, int value)
 {
 	List *list = new List;
 	list->value = value;
+	list->next = NULL;
+	if (!l)
+		return list;
 	l->next = list;
 	return list;
 }
