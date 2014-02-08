@@ -2,6 +2,7 @@
 // указывать на развернутую строку.
 
 #include <cstring>
+#include <iostream>
 
 char* string = "The string!";
 int main()
@@ -14,7 +15,8 @@ int main()
 	for (size_t i=0; i < length; i++)
         reverse_string[i] = string[length-i-1];
 
-
+	std::cout << reverse_string;
+	
 	delete [] reverse_string;
 	return 0;
 }
