@@ -21,10 +21,9 @@ List* Add(List* l, int value)
       new_item->next = NULL;
       
       if (l) {
-            List* temp = l;
-            while (temp->next)
-                  temp = temp->next;
-            temp->next = new_item;
+            while (l->next)
+                  l = l->next;
+            l->next = new_item;
       }
       
       return new_item;
