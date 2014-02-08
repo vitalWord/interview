@@ -4,13 +4,25 @@
 // сектора, включая отрезки диагоналей, составляющие этот сектор.
 
 #include <iostream>
-
+#define min(x,y) ( (x) > (y) ? (y) : (x) )
 const int c_kM = 5;
+// row x col
 typedef int Matrix[c_kM][c_kM];
+
+int size(Matrix& m){
+	return c_kM;
+}
 
 int min_from_top_sector(Matrix& m)
 {
-
+	int m_size = size(m);
+	int res = m[0][0];
+	for (int i = 0; i < (m_size / 2 + m_size % 2); i++) {
+		for (int j = i; j < (m_size - i); j++) {
+			res = min(res,m[i][j]);
+		}
+	}
+	return res;
 }
 
 int _tmain(int argc, _TCHAR* argv[])
