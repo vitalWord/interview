@@ -1,4 +1,5 @@
 #include <string.h>
+#include <iostream>
 
 char* string = "The string!";
 int main()
@@ -13,5 +14,10 @@ int main()
 	}
 	reverse_string[len] = '\0';
 
+	std::cout << reverse_string << std::endl;
+
+	delete [] reverse_string;
+	reverse_string = nullptr;
+	
 	return 0;
 }
