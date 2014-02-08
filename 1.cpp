@@ -1,3 +1,6 @@
+// Разверните строку. Указатель reverse_string должен 
+// указывать на развернутую строку.
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
