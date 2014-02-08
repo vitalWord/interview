@@ -14,13 +14,14 @@ struct List
 // It should return pointer to the added List object.
 List* Add(List* l, int value)
 {
-    while (l)
-        l = l->next;
-    l = new List;
-    l->next = NULL;
-    l->value = value;
+    List **p = &l;
+    while (*p)
+        p = &(*p)->next;
+    *p = new List;
+    (*p)->next = NULL;
+    (*p)->value = value;
 
-    return l;
+    return *p;
 }
 
 int main(int argc, char* argv[])
