@@ -3,7 +3,7 @@
 
 static const char* str = "The string!";
 
-void strreverse_inplace(char * aStr);
+void strreverse(char * aStr);
 
 #define swap_char(left, right) \
 	do {                       \
@@ -23,8 +23,7 @@ int main()
 
 void strreverse(char * p)
 {
-  char *q = p;
-  q += strlen(p);
+  char *q = p + strlen(p);
   for(--q; p < q; ++p, --q)
   	swap_char(*p, *q);
 }
