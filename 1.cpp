@@ -20,5 +20,6 @@ int main()
 	strcpy(reverse_string, string);
 	reverse_string = reverse(reverse_string);
 	std::cout << reverse_string << std::endl;
+	delete [] reverse_string;
 	return 0;
 }
