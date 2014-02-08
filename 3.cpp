@@ -25,15 +25,24 @@ List* Add(List* l, int value)
 	return new_last;
 }
 
+void FreeList(List* head)
+{
+	if(!head)
+		return;
+	if(head->next)
+		FreeList(head);
+	delete head;
+	head = nullptr;
+}
 int main(int argc, char* argv[])
 {
 	const int N = 6;
-	List * l = new List();
-	l->next = nullptr;
-	l->value = 0;
-	for(int i = 1; i < N; i++)
+	List * l = Add(nullptr, 1);
+	for(int i = 2; i < N; i++)
 	{
 		Add(l, i);
 	}
+	FreeList(l);
+
 return 0;
 }
