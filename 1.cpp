@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 static const char* str = "The string!";
 
@@ -22,6 +23,9 @@ int main()
 	printf("%s\n", str);
 	strreverse(reverse_string);
 	printf("%s\n", reverse_string);
+
+	free(reverse_string);
+	
 	return 0;
 }
 
