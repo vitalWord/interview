@@ -29,8 +29,7 @@ void FreeList(List* head)
 {
 	if(!head)
 		return;
-	if(head->next)
-		FreeList(head);
+	FreeList(head->next);
 	delete head;
 	head = nullptr;
 }

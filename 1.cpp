@@ -9,7 +9,7 @@ int main()
 	int Len = strlen(string);
 	reverse_string = new char[Len + 1];
 	reverse_string[Len] = '\0'; // ending 0
-    for(int beg = 0, end = Len - 1; beg <= end; beg++, end--)
+	for(int beg = 0, end = Len - 1; beg <= end; beg++, end--)
 	{
 		reverse_string[beg] = string[end];
 		reverse_string[end] = string[beg];
