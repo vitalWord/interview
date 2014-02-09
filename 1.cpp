@@ -1,4 +1,7 @@
-#define USE_VERSION 2
+// Разверните строку. Указатель reverse_string должен 
+// указывать на развернутую строку.
+
+#define USE_VERSION 1
 
 static const char* str = "The string!";
 
@@ -18,23 +21,23 @@ void strreverse(char * aStr);
 
 int main()
 {
-	char* reverse_string = strdup(str); //strlen + alloc + memcpy
+    char* reverse_string = strdup(str); //strlen + alloc + memcpy
 
-	strreverse(reverse_string);
+    strreverse(reverse_string);
 
-	printf("%s\n", str);
-	printf("%s\n", reverse_string);
+    printf("%s\n", str);
+    printf("%s\n", reverse_string);
 	
-	free(reverse_string);
+    free(reverse_string);
 	
-	return 0;
+    return 0;
 }
 
 void strreverse(char * p)
 {
-  char *q = p + strlen(p);
-  for(--q; p < q; ++p, --q)
-  	swap_char(*p, *q);
+    char *q = p + strlen(p);
+    for(--q; p < q; ++p, --q)
+        swap_char(*p, *q);
 }
 
 #endif
@@ -43,20 +46,20 @@ void strreverse(char * p)
 
 # include <iostream>
 # include <algorithm>
-	// std::reverse
+    // std::reverse
 # include <string>
 
 int main () {
-  std::string result(str);
+    std::string result(str);
 
-  std::reverse(result.begin(), result.end());
+    std::reverse(result.begin(), result.end());
 
-  char* reverse_string = &result[0];
+    char* reverse_string = &result[0];
 
-  std::cout << "Original: " << str << std::endl;
-  std::cout << "Reversed: " << reverse_string << std::endl;
+    std::cout << "Original: " << str << std::endl;
+    std::cout << "Reversed: " << reverse_string << std::endl;
 
-  return 0;
+    return 0;
 }
 
 #endif
