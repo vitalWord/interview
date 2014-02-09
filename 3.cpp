@@ -12,8 +12,7 @@ struct List
 };
 
 +List::~List() {
- +    if (this->next)
- +        delete this->next;
+ +    delete this->next;
   }
 
 // Add should create new List object, initialize it by value and add it to the end of the list.
@@ -23,9 +22,7 @@ List* Add(List* l, int value)
     List **p = &l;
     while (*p)
         p = &(*p)->next;
-    *p = new List;
-    (*p)->next = NULL;
-    (*p)->value = value;
+    *p = new List {NULL, valuse};
 
     return *p;
 }
