@@ -15,7 +15,7 @@ int min_from_top_sector(Matrix& m)
 		int indeks=(c_kM%2==0)?c_kM/2:c_kM/2+1;
 		for (int i=0;i<indeks;i++)
 		{
-			for (int j=i;j<=c_kM-i;j++)
+			for (int j=i;j<c_kM-i;j++)
 			{
 				if(m[i][j+i]<min)
 					min=m[i][j];
