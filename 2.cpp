@@ -10,7 +10,15 @@ typedef int Matrix[c_kM][c_kM];
 
 int min_from_top_sector(Matrix& m)
 {
-
+	int min = m[0][0];
+	int middle = c_kM / 2 + 1;
+	for(int i = 0; i < middle; i++)
+		for(int j = i; j < c_kM - i; j++)
+		{
+			if(min > m[i][j])
+				min = m[i][j];
+		}
+	return min;
 }
 
 int _tmain(int argc, _TCHAR* argv[])
