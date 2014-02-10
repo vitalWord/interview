@@ -13,5 +13,6 @@ int main()
 	reverse_string[it]='\0';
 	std::cout<<reverse_string<<std::endl;
 	system("pause");
+	delete[]reverse_string;
 	return 0;
 }
