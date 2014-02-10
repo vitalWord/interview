@@ -13,7 +13,14 @@ List* Add(List* l, int value)
 {
 	List *newList=new List;
 	newList->value=value;
-	l->next=newList;
+	newList->next=NULL;
+	if(l)
+	{
+		
+		l->next=newList;
+		return (l);
+	}
+	else
 	return(newList);
 }
 
@@ -21,7 +28,7 @@ int main(int argc, char* argv[])
 {
 	List *_lst=new List;
 	_lst->value=1;
-	for(int i=0;i<5;i++)
-		_lst=Add(_lst,i+1);
+	for(int i=2;i<5;i++)
+		_lst=Add(_lst,i);
 return 0;
 }
