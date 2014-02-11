@@ -15,6 +15,10 @@ List* Add(List* l, int value)
 	newListObject->value = value;
 	if (l != NULL)
 	{
+		while (l->next != NULL)
+		{
+			l = l->next;
+		}
 		l->next = newListObject;
 	}
 	return newListObject;
@@ -26,7 +30,7 @@ int main(int argc, char* argv[])
 	List * temp = list;
 	for (int i = 2; i <= 5; i++)
 	{
-		temp = Add(temp, i);
+		Add(list, i);
 	}
 	return 0;
 }
