@@ -16,9 +16,11 @@ List* Add(List* l, int value)
 	newList->next=NULL;
 	if(l)
 	{
+		while(l->next)
+		l=l->next;
 		
 		l->next=newList;
-		return (l);
+		return l;
 	}
 	else
 	return(newList);
