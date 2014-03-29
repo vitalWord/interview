@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>finish.png</file>
+        <file>gold.png</file>
+        <file>level1.txt</file>
+        <file>level2.txt</file>
+        <file>monster.png</file>
+        <file>pacman.png</file>
+        <file>wall.png</file>
+    </qresource>
+</RCC>
