@@ -16,11 +16,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	Points points;
 	Handler handle;
 	handle.InputPoints(points);
-	handle.InitGraph(points);
-	handle.ShowInput(points);
 	handle.cycle(points);
 	handle.ShowCrossPoints();
-	
+	handle.fillNode();
 	system("pause");
 	return 0;
 }
